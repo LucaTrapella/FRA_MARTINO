@@ -1,7 +1,7 @@
 #SCALE
 
 scale_notes=[60,62,64,65,67,69,71,72]
-
+print("hello")
 
 #ARPEGGIOS
 
