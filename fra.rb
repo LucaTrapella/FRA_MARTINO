@@ -1,7 +1,6 @@
 #SCALE
 
 scale_notes=[60,62,64,65,67,69,71,72]
-print("hello")
 
 #ARPEGGIOS
 
@@ -102,4 +101,30 @@ in_thread do
       end
     end
   end
+end
+
+in_thread do
+  
+  loop   do
+    sample :drum_cymbal_closed, amp: 0.5 if spread(7,8).tick
+    sleep 0.25
+    
+    sample :bd_haus, amp: 1.5 if (spread 3,8).look
+    sleep 0.25
+    
+    sample :sn_dolf, amp: 1.2 if (spread 2,8).look
+  end
+  loop do
+    with_fx :lpf, cutoff: 110 do
+      sample :perc_snap, amp: 0.3 if (spread 5, 16).tick
+      sleep 0.125
+    end
+  end
+   
+  loop do
+    sleep 0.75
+    sample :elec_blip, amp: 0.4, rate: 1.5 if (spread 4, 7).tick
+    sleep 0.25
+  end
+  
 end
